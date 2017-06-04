@@ -31,14 +31,10 @@ need to define its implementation for the translation unit:
 ```
 
 Afterwards, you can include the header in any other source files you
-will call the library from.
-
-As for API usage checkout the `test_bench.cpp` file.  The unit tests
-in that file are short and simple and cover the majority of the
-library.
-
-The library does provide some options through preprocessor
-definitions:
+will call the library from.  As for API usage checkout the
+`test_bench.cpp` file.  The unit tests in that file are short and
+cover the majority of the library.  The library does provide some
+options through preprocessor definitions:
 
 * **M3D_STATIC** You can define this variable to have M3D be
   statically defined to a specific translation unit.
@@ -47,8 +43,8 @@ definitions:
   of whether a matrix is invertible or not.  The default is 0.00001.
 
 * **M3D_DO_NOT_USE_C_MATH_LIB** Define this variable if you do not
-  want to use the C standard math library for various trigonometric
-  functions.  If you do set this variable then you must provide your
+  want to use the C standard math library for various math functions.
+  If you do set this variable then you must provide your
   implementation of the various math functions required by M3D which
   must also have the same signature as those defined by `math.h`.  As
   an example:
@@ -74,16 +70,16 @@ Test and Benchmarks
 The `test_bench.cpp` file contains the unit tests and benchmarks for
 the library and solely for development purposes.  Currently, the test
 and benchmark suite only builds with a recent MSVC compiler as it uses
-intrinsics for the x86 rdtscp and cpuid instructions.  Furthermore, the
-benchmarks require a processor to support the rdtscp instruction and
-have an invariant TSC to have any meaningful results.  However, these
-features are standard on recent Intel and AMD processors over the last
-half decade.
+intrinsics for the x86 `rdtscp` and `cpuid` instructions.
+Furthermore, the benchmarks require a processor to support the
+`rdtscp` instruction and have an invariant TSC to have any meaningful
+results.  However, these features are standard on recent Intel and AMD
+processors over the last half decade.
 
 To build the test and benchmarks just run the `test-msvc.bat` script
 in the project directory from a command prompt that has loaded the VC
 environment variables through the `vsvarsall.bat` script.  Visual
-Studio has command prompt that does this for you, just type `command`
+Studio has a command prompt that does this for you, just type `command`
 in the Windows start menu search and it should be one of the top
 choices on the list.  Once built, a build directory will be in the
 project directory that contains a `m3d.exe` executable to run the
